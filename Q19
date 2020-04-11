@@ -1,0 +1,36 @@
+
+#include<stdio.h>
+int maximumindex(int A[]); 
+int main(){
+
+	int giftsnumber[10], giftsnumber1[10], s[10]; 
+	printf("Enter Number of Gifts: \n");
+	for(int i=0; i<10; i++){
+		printf("S[%d] : ",i+1);
+		scanf("%d",&giftsnumber[i]); 
+		giftsnumber1[i] = giftsnumber[i];
+	}
+	
+	for(int i=0; i<10 ; i++){
+		int indexmax = maximumindex(giftsnumber);
+		s[i] = indexmax+1;
+		giftsnumber[indexmax] = -1;
+	}
+	
+	printf("\nOrder of billinggiftsnumber is: \n");
+	
+	for(int i=0; i<10; i++){
+		printf("S[%d]  -  %d\n",s[i], giftsnumber1[s[i]-1]);
+	}
+	return 0;
+}
+int maximumindex(int A[]){
+	int max=A[0]; int max1 = 0;
+
+	for(int i=0; i<10; i++){
+		if(A[max1] < A[i]){
+			max1 = i;
+		}
+	}
+	return max1;
+}
